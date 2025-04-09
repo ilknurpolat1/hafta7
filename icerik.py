@@ -9,14 +9,16 @@ def content(url):
     title = baslik.get_text().strip() if baslik else ""
 
     zaman = soup.find("time")
-    tarih = zaman.get_text().strip() if zaman else ""
+    date = zaman.get_text().strip() if zaman else ""
 
     paragraf = soup.find_all("p")
-    icerik = "\n".join([p.get_text().strip() for p in paragraf])
+    content = ""
+    for p in paragraf:
+        content += p.get_text().strip() + "\n"
 
-    data = 'Tarih: {}\nBaşlık: {}\nİçerik:\n{}\n'.format(tarih, title, icerik)
+    data = 'Tarih: {}\nBaşlık: {}\nİçerik:\n{}\n'.format(date, title, content)
 
-    with open("haber_kayitlari.txt", "a", encoding="utf-8") as file:
+    with open("haber_kayitlari.txt", "a", encoding="utf-8") as file:    
         file.write(data + "\n")
 
 content("https://www.milligazete.com.tr/haber/24244937/serdar-haydanli-kimdir")
