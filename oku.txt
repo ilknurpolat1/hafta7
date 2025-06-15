@@ -1,0 +1,3 @@
+Bu derste BeautifulSoup html içeriğini ayrıştırmak adına kullandık projede ise  verilen bir haber linkinden haberin başlığını, 
+tarihini ve içeriğini otomatik olarak çekip .txt dosyasına kaydedettik 
+
